@@ -1,0 +1,49 @@
+[PASS] sqlite file created C:\Users\vivek\OneDrive\Desktop\Swathib\Machine learining-project1\instance\autoprice.db
+[PASS] users table has expected columns ['id', 'email', 'password_hash', 'full_name', 'created_at']
+[PASS] default admin seeded
+[FAIL] admin password is hashed (not plain text) scrypt:32768:8:1$SOwPrdL...
+[PASS] email has a UNIQUE constraint (auto-index origin='u') [('sqlite_autoindex_users_1', 'u')]
+[PASS] GET /register -> 200
+[PASS] register page has 4 field icons count=4
+[PASS] register has input[name=full_name]
+[PASS] register has input[name=email]
+[PASS] register has input[name=password]
+[PASS] register has input[name=confirm_password]
+[PASS] register has strength meter
+[PASS] register has dark theme link
+[PASS] register has car svg
+[PASS] register links back to sign in
+[PASS] nav shows Register link
+[PASS] rejects: Full name is required -> Full name is required
+[PASS] rejects: at least 2 characters -> at least 2 characters
+[PASS] rejects: valid email address -> valid email address
+[PASS] rejects: valid email address -> valid email address
+[PASS] rejects: Password is required -> Password is required
+[PASS] rejects: at least 8 characters -> at least 8 characters
+[PASS] rejects: do not match -> do not match
+[PASS] rejects: already exists -> already exists
+[PASS] failed registrations not persisted count=1
+[PASS] valid registration succeeds
+[PASS] new user row persisted
+[PASS] full_name stored
+[PASS] password stored hashed
+[PASS] created_at auto-filled
+[PASS] user count now 2
+[PASS] duplicate email rejected
+[PASS] new user can sign in
+[PASS] header shows user name
+[PASS] wrong password rejected
+[PASS] unknown user rejected
+[PASS] seeded admin can still sign in
+[PASS] email match is case-insensitive
+[PASS] anonymous /input is blocked
+[PASS] anonymous /predict is blocked
+[PASS] anonymous can reach /register
+[PASS] logged-in user redirected off /register
+[PASS] data survives re-init
+[PASS] init_database is idempotent (no dup admin) count=1
+[PASS] predict still works after refactor price=503,290
+[PASS] result page still shows importance bars
+[PASS] prediction validation still works
+
+SUMMARY: 46/47 checks passed

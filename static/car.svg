@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img"
+     aria-label="Modern sports car illustration">
+  <title>Modern Sports Car</title>
+
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#4a5878"/>
+      <stop offset=".28" stop-color="#2b3653"/>
+      <stop offset=".62" stop-color="#161f38"/>
+      <stop offset="1"   stop-color="#070b16"/>
+    </linearGradient>
+
+    <linearGradient id="glass" x1="0" y1="0" x2=".4" y2="1">
+      <stop offset="0"   stop-color="#2a3c63"/>
+      <stop offset=".5"  stop-color="#101a33"/>
+      <stop offset="1"   stop-color="#060a16"/>
+    </linearGradient>
+
+    <linearGradient id="rimLit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#ffffff"/>
+      <stop offset=".45" stop-color="#ff2f42"/>
+      <stop offset="1"   stop-color="#7d0009"/>
+    </linearGradient>
+
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".42" stop-color="#ffffff" stop-opacity=".26"/>
+      <stop offset=".62" stop-color="#ffffff" stop-opacity=".05"/>
+      <stop offset="1"   stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="tire" cx=".5" cy=".5" r=".5">
+      <stop offset=".55" stop-color="#1b2233"/>
+      <stop offset=".82" stop-color="#0c1120"/>
+      <stop offset="1"   stop-color="#05070e"/>
+    </radialGradient>
+
+    <radialGradient id="shadow" cx=".5" cy=".5" r=".5">
+      <stop offset="0"   stop-color="#ff2f42" stop-opacity=".42"/>
+      <stop offset=".55" stop-color="#ff2f42" stop-opacity=".12"/>
+      <stop offset="1"   stop-color="#ff2f42" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="speed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff2f42" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".55"/>
+    </linearGradient>
+
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ground glow -->
+  <ellipse cx="470" cy="262" rx="430" ry="40" fill="url(#shadow)"/>
+
+  <!-- motion streaks -->
+  <g opacity=".5">
+    <rect x="24" y="150" width="150" height="3" rx="1.5" fill="url(#speed)"/>
+    <rect x="54" y="168" width="96"  height="3" rx="1.5" fill="url(#speed)"/>
+    <rect x="10" y="186" width="120" height="3" rx="1.5" fill="url(#speed)"/>
+  </g>
+
+  <!-- ================= BODY ================= -->
+  <path d="M42 214 L42 188 C42 170 55 161 78 157 L152 147 L232 110
+           C259 98 293 92 331 92 L521 92 C568 92 606 103 639 124
+           L714 159 L807 174 C842 181 858 192 858 214 L858 222 L42 222 Z"
+        fill="url(#body)" stroke="#4d5b7d" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- greenhouse / windows -->
+  <path d="M244 114 C267 101 298 97 333 97 L519 97 C559 97 592 107 622 126
+           L636 139 L222 139 Z"
+        fill="url(#glass)" stroke="#5d6d94" stroke-width="1.4" stroke-linejoin="round"/>
+
+  <!-- B-pillar -->
+  <path d="M392 97 L404 97 L404 139 L392 139 Z" fill="#080d1a"/>
+
+  <!-- glass reflections -->
+  <path d="M258 110 C280 100 306 97 333 97 L360 97 L250 139 L236 139 Z"
+        fill="#ffffff" opacity=".13"/>
+  <path d="M430 97 L470 97 L400 139 L360 139 Z" fill="#ff2f42" opacity=".1"/>
+
+  <!-- shoulder highlight -->
+  <path d="M78 157 L152 147 L232 110 C259 98 293 92 331 92 L521 92
+           C568 92 606 103 639 124 L714 159"
+        fill="none" stroke="#ffffff" stroke-width="2.4" opacity=".4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- character line -->
+  <path d="M60 190 C210 172 430 168 620 176 C720 180 800 186 852 196"
+        fill="none" stroke="#ff2f42" stroke-width="1.8" opacity=".55" stroke-linecap="round"/>
+
+  <!-- body sheen -->
+  <path d="M42 214 L42 188 C42 170 55 161 78 157 L152 147 L232 110
+           C259 98 293 92 331 92 L521 92 C568 92 606 103 639 124
+           L714 159 L807 174 C842 181 858 192 858 214 L858 222 L42 222 Z"
+        fill="url(#sheen)"/>
+
+  <!-- ================= LIGHTS ================= -->
+  <g filter="url(#glow)">
+    <path d="M796 176 L848 186 L850 196 L792 190 Z" fill="#ffffff" opacity=".95"/>
+    <path d="M792 176 L852 187 L850 193 L790 184 Z" fill="#ff2f42"/>
+  </g>
+  <g filter="url(#glow)">
+    <path d="M44 172 L96 168 L96 180 L44 186 Z" fill="#ff2f42"/>
+    <path d="M44 172 L96 168 L96 172 L44 176 Z" fill="#ffd9dd" opacity=".9"/>
+  </g>
+
+  <!-- side mirror -->
+  <path d="M636 128 L664 124 L672 134 L642 138 Z" fill="#1a2340" stroke="#5d6d94"
+        stroke-width="1.2" stroke-linejoin="round"/>
+
+  <!-- exhaust -->
+  <path d="M806 212 L846 212 L846 220 L806 220 Z" fill="#0a0f1d" stroke="#3d4a6b"
+        stroke-width="1.2"/>
+
+  <!-- ================= WHEELS ================= -->
+  <g>
+    <circle cx="228" cy="214" r="58" fill="url(#tire)"/>
+    <circle cx="228" cy="214" r="58" fill="none" stroke="#05070e" stroke-width="3"/>
+    <circle cx="228" cy="214" r="40" fill="none" stroke="url(#rimLit)" stroke-width="3.4" opacity=".95"/>
+    <circle cx="228" cy="214" r="27" fill="none" stroke="url(#rimLit)" stroke-width="3" opacity=".8"/>
+    <g stroke="#ff2f42" stroke-width="4.5" stroke-linecap="round" opacity=".9">
+      <path d="M228 176 L228 190"/>
+      <path d="M266 214 L252 214"/>
+      <path d="M228 252 L228 238"/>
+      <path d="M190 214 L204 214"/>
+    </g>
+    <circle cx="228" cy="214" r="9" fill="url(#rimLit)"/>
+    <path d="M176 172 A58 58 0 0 1 280 172" fill="none" stroke="#ff2f42"
+          stroke-width="2.6" opacity=".55" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="668" cy="214" r="58" fill="url(#tire)"/>
+    <circle cx="668" cy="214" r="58" fill="none" stroke="#05070e" stroke-width="3"/>
+    <circle cx="668" cy="214" r="40" fill="none" stroke="url(#rimLit)" stroke-width="3.4" opacity=".95"/>
+    <circle cx="668" cy="214" r="27" fill="none" stroke="url(#rimLit)" stroke-width="3" opacity=".8"/>
+    <g stroke="#ff2f42" stroke-width="4.5" stroke-linecap="round" opacity=".9">
+      <path d="M668 176 L668 190"/>
+      <path d="M706 214 L692 214"/>
+      <path d="M668 252 L668 238"/>
+      <path d="M630 214 L644 214"/>
+    </g>
+    <circle cx="668" cy="214" r="9" fill="url(#rimLit)"/>
+    <path d="M616 172 A58 58 0 0 1 720 172" fill="none" stroke="#ff2f42"
+          stroke-width="2.6" opacity=".55" stroke-linecap="round"/>
+  </g>
+
+  <!-- underglow -->
+  <ellipse cx="450" cy="272" rx="330" ry="12" fill="#ff2f42" opacity=".2"
+           filter="url(#glow)"/>
+</svg>

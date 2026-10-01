@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Sign In · AutoPrice AI{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <span class="eyebrow"><span class="pulse"></span> Secure Access</span>
+    <h1>Car Price <em>Intelligence</em></h1>
+    <p>Sign in to load the dashboard and generate resale value estimates
+       from our trained Random Forest regression model.</p>
+</div>
+
+<div class="wrap">
+    <div class="layout" style="grid-template-columns: minmax(0, 460px) minmax(0, 1fr);">
+
+        <!-- login form -->
+        <div class="panel">
+            <div class="panel-head">
+                <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                <h2>Sign In</h2>
+                <span class="sub">Admin</span>
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert">
+                    <svg viewBox="0 0 24 24"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v5h2v-5z"/></svg>
+                    <span>{{ messages[0] }}</span>
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('check_login') }}">
+                <div class="form-grid" style="grid-template-columns: 1fr;">
+
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <div class="control">
+                            <input type="email" id="email" name="email" placeholder="admin@example.com"
+                                   autocomplete="username" required>
+                            <svg class="field-icon" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5c0 1.38-.56 2.63-1.46 3.54A4.96 4.96 0 0 1 17 12.9V14h-2v8H9v-8H7v-1.1c0-.85.2-1.66.54-2.36A4.96 4.96 0 0 1 6 7a5 5 0 0 1 5-5zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 14h2v2.5h-2V18z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <div class="control">
+                            <input type="password" id="password" name="password" placeholder="••••••••"
+                                   autocomplete="current-password" required>
+                            <svg class="field-icon" viewBox="0 0 24 24"><path d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 8h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 0 1 6 0v2H9V6z"/></svg>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn-predict">
+                        <svg viewBox="0 0 24 24"><path d="M10 17l5-5-5-5v2H3v6h7v-2zm9-15h-8v2h8v6h2V4a2 2 0 0 0-2-2z"/></svg>
+                        Sign In
+                    </button>
+                </div>
+            </form>
+
+            <p class="auth-alt">
+                Don't have an account?
+                <a href="{{ url_for('register') }}">Create one now</a>
+            </p>
+        </div>
+
+        <!-- model overview -->
+        <div class="panel">
+            <div class="panel-head">
+                <svg viewBox="0 0 24 24"><path d="M12 2 4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
+                <h2>Model Overview</h2>
+                <span class="sub">v1.0</span>
+            </div>
+
+            <div class="stack">
+                <div class="stat">
+                    <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M12 2 4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg></span>
+                    <div>
+                        <div class="stat-val">RandomForestRegressor</div>
+                        <div class="stat-key">Algorithm · 100 Trees</div>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16v2H4V7zm0 4h16v2H4v-2zm0 4h16v2H4v-2z"/></svg></span>
+                    <div>
+                        <div class="stat-val">One-Hot Encoding</div>
+                        <div class="stat-key">Preprocessing · ColumnTransformer</div>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18v-2H5V3H3zm4 14 5-5 3.5 3.5L20 10l1.5 1.5-6 6-3.5-3.5L8.5 19.5 7 18z"/></svg></span>
+                    <div>
+                        <div class="stat-val">6 Input Features</div>
+                        <div class="stat-key">Year · Km · Fuel · Seller · Gearbox · Owner</div>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zm1 17h-2v-2h2v2zm0-4h-2V7h2v7z"/></svg></span>
+                    <div>
+                        <div class="stat-val">Supervised Regression</div>
+                        <div class="stat-key">Target · Selling Price (INR)</div>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+                    <div>
+                        <div class="stat-val">{{ total_users }} Registered Users</div>
+                        <div class="stat-key">SQLite · autoprice.db</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,3 @@
+﻿sqlite3 3.50.4
+hash ok: True
+check ok: True
